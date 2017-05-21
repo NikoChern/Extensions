@@ -27,27 +27,28 @@ namespace Extensions
 
         static void Main(string[] args)
         {
-            classPerson1.Person P1 = new classPerson1.Person();
-            classPerson2.Person P2 = new classPerson2.Person();
-            classPerson1.Person FPerson = new classPerson1.Person();
-            classPerson2.Person LPerson = new classPerson2.Person();
+            classPerson1.Person p1 = new classPerson1.Person();
+            classPerson1.Person fPerson = new classPerson1.Person();
+            classPerson2.Person lPerson = new classPerson2.Person();
 
-            P1.Name = "Ivan";
-            P1.Surname = "Ivanov";
+            p1.Name = "Ivan";
+            p1.Surname = "Ivanov";
 
-            P2.FirstName = "Kolya";
-            P2.lastName = "Nisk";
+            p2.FirstName = "Kolya";
+            p2.lastName = "Nisk";
 
-            FPerson.Name = "Ivan";
-            FPerson.Surname = "Ivanov";
+            fPerson.Name = "Ivan";
+            fPerson.Surname = "Ivanov";
 
-            LPerson.FirstName = "Kolya";
-            LPerson.lastName = "Nisk";
+            lPerson.FirstName = "Kolya";
+            lPerson.lastName = "Nisk";
 
-            bool equals = P1.Comparison(P2);
-            equals = P1.Comparison(P1);
-            equals = P1.Comparison(P2);
-            equals = P1.Comparison(P2);
+            bool equals = p1.Compare(p2);
+            equals = p1.Compare(p1);
+            equals = p1.Compare(p2);
+            equals = p1.Compare(p2);
+
+            Console.WriteLine("");
 
             Console.ReadLine();
         }
@@ -55,7 +56,7 @@ namespace Extensions
 
     public static class StringExtension
     {
-        public static bool Comparison(this classPerson1.Person Person1, classPerson2.Person Person2)
+        public static bool Compare(this classPerson1.Person Person1, classPerson2.Person Person2)
         {
             if (Person1.Name == Person2.FirstName)
             {
@@ -71,7 +72,7 @@ namespace Extensions
             }
         }
 
-        public static bool Comparison(this classPerson1.Person Person1, classPerson1.Person FirstPerson)
+        public static bool Compare(this classPerson1.Person Person1, classPerson1.Person FirstPerson)
         {
             if (Person1.Name == FirstPerson.Surname)
             {
@@ -83,7 +84,7 @@ namespace Extensions
             }
         }
 
-        public static bool Comparison(this classPerson2.Person Person2, classPerson2.Person LastPerson)
+        public static bool Compare(this classPerson2.Person Person2, classPerson2.Person LastPerson)
         {
             if (Person2.FirstName == LastPerson.lastName)
             {
@@ -95,7 +96,7 @@ namespace Extensions
             }
         }
 
-        public static bool Comparison(this classPerson2.Person Person2, classPerson1.Person Person1)
+        public static bool Compare(this classPerson2.Person Person2, classPerson1.Person Person1)
         {
             if (Person2.FirstName == Person1.Name)
             {
